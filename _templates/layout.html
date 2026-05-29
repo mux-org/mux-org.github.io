@@ -1,0 +1,12 @@
+{% extends "!layout.html" %}
+
+{# The home page uses the mux SVG logo in place of a text heading, so it has
+   no RST title for Sphinx to derive a page title from. Give it a simple one
+   here instead of the default "<no title>". #}
+{% block htmltitle %}
+  {%- if pagename == 'index' -%}
+    <title>mux</title>
+  {%- else -%}
+    {{ super() }}
+  {%- endif -%}
+{% endblock %}
