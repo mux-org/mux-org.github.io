@@ -222,3 +222,8 @@ __marimo__/
 .DS_Store
 .claude/
 _build/
+
+# Repositories pulled into the docs build (see */repos.txt); cloned in CI,
+# symlinked locally. Their tracked repos.txt and index.rst files are unaffected.
+utils/*/
+containers/*/

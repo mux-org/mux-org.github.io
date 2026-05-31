@@ -31,6 +31,24 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Clone documentation repositories
+        env:
+          # PAT or GitHub App token with read access to any private repos.
+          # Falls back to GITHUB_TOKEN, which is fine for public repos.
+          MUX_DOCS_TOKEN: ${{ secrets.MUX_DOCS_TOKEN || github.token }}
+        run: |
+          for list in */repos.txt; do
+            [ -e "$list" ] || continue
+            dest="${list%/repos.txt}"
+            while read -r repo branch _; do
+              case "$repo" in ''|\#*) continue ;; esac
+              name="${repo##*/}"
+              echo "Cloning $repo into $dest/$name"
+              git clone --depth 1 ${branch:+--branch "$branch"} \
+                "https://x-access-token:${MUX_DOCS_TOKEN}@github.com/${repo}.git" \
+                "$dest/$name"
+            done < "$list"
+          done
       - name: Install Dependencies
         run: |
           pip install -r requirements.txt

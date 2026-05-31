@@ -1,0 +1,8 @@
+# Repositories that feed the utils/ docs.
+# One per line:  owner/name  [branch]   (branch optional; ends up at utils/<name>)
+# Lines starting with # and blank lines are ignored.
+#
+# Locally these are symlinked from sibling checkouts (../name) so un-pushed
+# changes are picked up; in CI they are cloned from GitHub (auth: MUX_DOCS_TOKEN).
+
+mux-org/muxdoc

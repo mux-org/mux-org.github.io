@@ -1,10 +1,4 @@
-import sys
-from pathlib import Path
-
-sys.path.insert(0, str(Path('utils/tcspy').resolve()))
-
-
 project = 'mux'
+author = 'Andy Kee'
+copyright = '%Y, California Institute of Technology'
 extensions = ['muxdoc']
-
-todo_include_todos = True
