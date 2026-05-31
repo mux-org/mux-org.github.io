@@ -5,4 +5,4 @@
 # Locally these are symlinked from sibling checkouts (../name) so un-pushed
 # changes are picked up; in CI they are cloned from GitHub (auth: MUX_DOCS_TOKEN).
 
-# mux-org/example-image
+mux-org/mediamtx
